@@ -30,7 +30,8 @@ express
 
 ## GETTING STARTED
 
-https://trello.com/b/KjRJxh4O/mern-stack-app-project\
-netlify
+netlify\
+https://trello.com/b/KjRJxh4O/mern-stack-app-project
+
 
 ## FUTURE ENHANCEMENTS
