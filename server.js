@@ -3,7 +3,7 @@
 // SEED file
 const seed = require('./seed')
 require("dotenv").config()
-const { PORT = 4000 } = process.env
+const { PORT, DATABASE_URL } = process.env
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
@@ -11,13 +11,13 @@ const cors = require("cors")
 const morgan = require("morgan")
 
 // DATABASE CONNECTION
-mongoose.connect(process.env.DATABASE_URL, {})
+mongoose.connect(DATABASE_URL)
 
+// Connection Events
 const db = mongoose.connection;
 db.on("error", (err) => console.log(err.message + " is mongo not running?"));
 db.on("connected", () => console.log("mongo connected"));
 db.on("disconnected", () => console.log("mongo disconnected"));
-
 
 // MODELS
 const LibrarySchema = new mongoose.Schema({
