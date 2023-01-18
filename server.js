@@ -1,7 +1,6 @@
 // DEPENDENCIES
 
-// SEED file
-const seed = require('./seed')
+
 require("dotenv").config()
 const { PORT, DATABASE_URL } = process.env
 const express = require("express")
@@ -9,6 +8,7 @@ const app = express()
 const mongoose = require("mongoose")
 const cors = require("cors")
 const morgan = require("morgan")
+const favesRouter = require('./controllers/faveReads')
 
 // DATABASE CONNECTION
 mongoose.connect(DATABASE_URL)
@@ -32,6 +32,7 @@ app.use(cors())
 app.use(morgan("dev")) 
 app.use(express.json()) 
 app.use(express.urlencoded({extended: false})); 
+app.use("faves", favesRouter)
 
 // ROUTES -- IDUC
 
@@ -41,16 +42,16 @@ app.get("/", (req, res) => {
 })
 
 // SEED
-app.get('/seed', (req, res) => {
-    Library.create(seed, (err, data) => {
-      res.redirect('/library')
-    })
-  })
+// app.get('/seed', (req, res) => {
+//     Library.create(seed, (err, data) => {
+//       res.redirect('/library')
+//     })
+//   })
 
 // INDEX
 app.get('/library' , async (req,res) =>{
     try {
-        res.status(200).json(await People.find ({})) 
+        res.status(200).json(await Library.find ({})) 
     } catch (error) {
         res.status(400).json(error)
     }

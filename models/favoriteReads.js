@@ -6,7 +6,9 @@ const favesSchema = new mongoose.Schema({
     genre: { type: String, required: true },
     img: { type: String, required: true },
     description: { type: String, required: true },
-    year: { type: Number, required: false }
+    year: { type: Number, required: false },
+    // star rating
+    review: { type: String, required: true}
 })
 
 const FaveReads = mongoose.model("faves", favesSchema)
