@@ -12,6 +12,8 @@ const favesRouter = require('./controllers/faveReads')
 
 // DATABASE CONNECTION
 mongoose.connect(DATABASE_URL)
+mongoose.connect(process.env.DATABASE_URL, {})
+mongoose.set('strictQuery', true);
 
 // Connection Events
 const db = mongoose.connection;
@@ -32,7 +34,7 @@ app.use(cors())
 app.use(morgan("dev")) 
 app.use(express.json()) 
 app.use(express.urlencoded({extended: false})); 
-app.use("faves", favesRouter)
+app.use("/faves", favesRouter)
 
 // ROUTES -- IDUC
 
