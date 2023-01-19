@@ -49,7 +49,7 @@ bookRouter.put('/:id', async (req, res) => {
                 res.redirect(`/faves/${req.params.id}`)
             }
         ))
-    } catch {
+    } catch (error) {
         res.status(400).json(error)
     }
 })
