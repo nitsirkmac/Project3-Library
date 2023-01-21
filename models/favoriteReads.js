@@ -11,6 +11,6 @@ const favesSchema = new mongoose.Schema({
     review: { type: String, required: true}
 })
 
-const FaveReads = mongoose.model("faves", favesSchema)
+const Faves = mongoose.model("faves", favesSchema)
 
-module.exports = FaveReads
+module.exports = Faves

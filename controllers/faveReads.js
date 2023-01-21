@@ -1,10 +1,16 @@
+const seed = require('../models/seed')
 const express = require('express');
-
 const bookRouter = express.Router();
 const Faves = require('../models/favoriteReads.js');
 bookRouter.use(express.json()) 
 bookRouter.use(express.urlencoded({extended: false})); 
 
+// SEED
+bookRouter.get('/seed', (req, res) => {
+    Faves.create(seed, (error, data) => {
+        res.redirect("/faves")
+    })
+})
 
 // INDEX
 bookRouter.get('/', async (req, res) => {
