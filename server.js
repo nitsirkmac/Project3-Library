@@ -53,41 +53,41 @@ app.get("/", (req, res) => {
 
 
 // INDEX
-app.get('/library' , async (req,res) =>{
-    try {
-        res.status(200).json(await Library.find ({})) 
-    } catch (error) {
-        res.status(400).json(error)
-    }
-}) 
+// app.get('/library' , async (req,res) =>{
+//     try {
+//         res.status(200).json(await Library.find ({})) 
+//     } catch (error) {
+//         res.status(400).json(error)
+//     }
+// }) 
 
 // DELETE
- app.delete('./library:id' , async (req, res) => {
-    try {
-        res.status(200).json(await Library.findByIdAndDelete(req.params.id))
-    } catch (error){
-        res.status(400).json(error)
-    }
- })
+//  app.delete('./library:id' , async (req, res) => {
+//     try {
+//         res.status(200).json(await Library.findByIdAndDelete(req.params.id))
+//     } catch (error){
+//         res.status(400).json(error)
+//     }
+//  })
 // UPDATE
-app.put('/library/:id', async (req, res) => {
-    try {
-        res.status(200).json(await Library.findByIdAndUpdate(req.params.id, req.body, { new: true }))
-    } catch(error) {
-        res.status(400).json(error)
-    }
+// app.put('/library/:id', async (req, res) => {
+//     try {
+//         res.status(200).json(await Library.findByIdAndUpdate(req.params.id, req.body, { new: true }))
+//     } catch(error) {
+//         res.status(400).json(error)
+//     }
 
-})
+// })
 // CREATE
-app.post('/library' , async (req,res) => {
-    try {
-        // send all people
-        res.status(200).json(await Library.create(req.body))
-    } catch (error) {
-        // send error
-        res.status(400).json(error)
-    }
-})
+// app.post('/library' , async (req,res) => {
+//     try {
+//         // send all people
+//         res.status(200).json(await Library.create(req.body))
+//     } catch (error) {
+//         // send error
+//         res.status(400).json(error)
+//     }
+// })
 
 
 // LISTENER
