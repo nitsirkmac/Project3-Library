@@ -52,7 +52,7 @@ app.get("/", (req, res) => {
 
 
 
-INDEX
+// INDEX
 app.get('/library' , async (req,res) =>{
     try {
         res.status(200).json(await Library.find ({})) 
@@ -61,7 +61,7 @@ app.get('/library' , async (req,res) =>{
     }
 }) 
 
-DELETE
+// DELETE
  app.delete('./library:id' , async (req, res) => {
     try {
         res.status(200).json(await Library.findByIdAndDelete(req.params.id))
@@ -69,7 +69,7 @@ DELETE
         res.status(400).json(error)
     }
  })
-UPDATE
+// UPDATE
 app.put('/library/:id', async (req, res) => {
     try {
         res.status(200).json(await Library.findByIdAndUpdate(req.params.id, req.body, { new: true }))
@@ -78,7 +78,7 @@ app.put('/library/:id', async (req, res) => {
     }
 
 })
-CREATE
+// CREATE
 app.post('/library' , async (req,res) => {
     try {
         // send all people
